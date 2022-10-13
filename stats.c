@@ -18,6 +18,8 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
        i++;
        sum = sum + *(numberset+i);
     }
+    s.min = min;
+    s.max = max;
     s.average = (sum)/setlength;
     return s;
 }
