@@ -28,11 +28,14 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
        i++;
        //sum = roundf(sum) + *(numberset+i);
     }
+          for (int j=0;j<setlength;j++)
+              sum += number[j];
+          
     printf("%f,%f %f", max,min,sum);
     s.min = roundf(min);
     s.max = roundf(max);
-    sum += *(numberset+1);
-    s.average = sum; //roundf(sum)/setlength;
+    //sum += *(numberset+1);
+    s.average = ceilf(sum)/setlength; //roundf(sum)/setlength;
     printf("%f,%f %f", max,min,sum);
       }
     return s;
