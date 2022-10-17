@@ -29,7 +29,7 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
        //sum = roundf(sum) + *(numberset+i);
     }
           for (int j=0;j<setlength;j++)
-              sum += number[j];
+              sum += numberset[j];
           
     printf("%f,%f %f", max,min,sum);
     s.min = roundf(min);
