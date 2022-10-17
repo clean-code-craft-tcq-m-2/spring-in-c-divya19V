@@ -24,9 +24,9 @@ TEST_CASE("average is NaN for empty array") {
      // Complete the require statement
     //Design the REQUIRE statement here.
     //Use https://stackoverflow.com/questions/1923837/how-to-use-nan-and-inf-in-c
-    //REQUIRE(isnan(computedStats_1.average));
-    //REQUIRE(isnan(computedStats_1.max));
-    //REQUIRE(isnan(computedStats_1.min));  
+    REQUIRE((computedStats_1.average) != NAN);
+    //REQUIRE((computedStats_1.max) != NAN);
+    //REQUIRE((computedStats_1.min) != NAN);  
 }
 
 TEST_CASE("raises alerts when max is greater than threshold") {
