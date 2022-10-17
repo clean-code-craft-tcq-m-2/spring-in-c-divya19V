@@ -19,12 +19,12 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
         else 
             min = *(numberset+i);
        i++;
-       sum = (sum + (*(numberset+i)));
+       sum = roundf(sum + (*(numberset+i)));
     }
     printf("%f,%f %f", max,min,sum);
     s.min = roundf(min);
     s.max = roundf(max);
-    s.average = roundf((sum)/setlength);
+    s.average = roundf(sum)/setlength;
     printf("%f,%f %f", max,min,sum);
     return s;
 }
