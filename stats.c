@@ -35,7 +35,7 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
     s.min = roundf(min);
     s.max = roundf(max);
     //sum += *(numberset+1);
-    s.average = ceilf(sum)/setlength; //roundf(sum)/setlength;
+    s.average = sum/setlength; //roundf(sum)/setlength;
     printf("%f,%f %f", max,min,sum);
       }
     return s;
