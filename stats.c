@@ -8,10 +8,9 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
     s.min = 0.0;
     s.max = 0.0;
     int i = 0; 
-    int j = 0;
     float min = numberset[i];
     float max = numberset[i];
-    float sum = 0.0;
+    float sum = numberset[i];
     i++;
     if (setlength == 0 && numberset == 0)
     {  
@@ -19,23 +18,21 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
         s.max = NAN;
         s.min = NAN;
     }
-      else {
-    while((i<setlength) && (i>=1))
+    else {
+        while((i<setlength) && (i>=1))
         {   
         if (numberset[i] > max) 
             max = numberset[i];
-        else 
-            min = numberset[i];
-       i++;
-       //sum = roundf(sum) + *(numberset+i);
-     }
-    for (int j=0;j<setlength;j++)
-        sum += numberset[j];
-          
+        else {
+            if(min > numberset[i])
+                min = numberset[i];
+        }
+        sum += numberset[i];
+        i++;    
+    }          
     s.min = min;
     s.max = max;
-    s.average = sum/setlength; 
-
+    s.average = sum/setlength;
     }
     return s;
 }
