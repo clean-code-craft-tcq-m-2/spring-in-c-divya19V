@@ -12,7 +12,14 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
     float sum = *(numberset+0);
     int i = 1;  
     
-    while(i<setlength && i>=1)
+    if (setlength == 0 && numberset == 0)
+    {  
+        s.average = NAN;
+        s.max = NAN;
+        s.min = NAN;
+    }
+      else {
+    while((i<setlength) && (i>=1))
     {   
         if (*(numberset+i) > max) 
             max = *(numberset+i);
@@ -26,6 +33,7 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
     s.max = roundf(max);
     s.average = sum; //roundf(sum)/setlength;
     printf("%f,%f %f", max,min,sum);
+      }
     return s;
 }
 
