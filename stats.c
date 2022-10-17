@@ -8,7 +8,7 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
     s.min = 0.0;
     s.max = 0.0;
     
-    if (setlength == 0 && numberset == 0)
+    if (setlength == 0 || numberset == 0)
         return s;
     else {
     int i = 0; 
