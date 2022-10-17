@@ -10,7 +10,7 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
     float min = *(numberset+0);
     float max = *(numberset+0);
     int i = 1;  
-    float sum = *(numberset+0);
+    float sum =  *(numberset+0);
     while(i<setlength && i>=1)
     {   
         if (*(numberset+i) > max) 
@@ -18,7 +18,7 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
         else 
             min = *(numberset+i);
        i++;
-       sum = sum + *(numberset+i);
+       sum =  roundf (sum + *(numberset+i));
     }
     printf("%f,%f %f", max,min,sum);
     s.min = roundf(min);
