@@ -9,7 +9,7 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
     s.max = 0.0;
     float min = *(numberset+0);
     float max = *(numberset+0);
-    float sum = *(numberset+0);
+    float sum = 0.0;
     int i = 1;  
     
     if (setlength == 0 && numberset == 0)
