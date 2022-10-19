@@ -10,15 +10,14 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
     
     if (setlength == 0 || numberset == 0)
         return s;
-    else {
+    
     int i = 0; 
     float min = numberset[i];
     float max = numberset[i];
     float sum = numberset[i];
     i++;
-        
-        while((i<setlength) && (i>=1))
-        {   
+    while(i<setlength)
+    {   
         if (numberset[i] > max) 
             max = numberset[i];
         else {
@@ -27,7 +26,7 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
         }
         sum += numberset[i];
         i++;    
-        }          
+     }          
     s.min = min;
     s.max = max;
     s.average = sum/setlength;
@@ -41,7 +40,7 @@ int ledAlertCallCount = 0;
 void check_and_alert(float maxThreshold, alerter_funcptr alerters[], struct Stats computedStats) {
     //Update the method for check_and_alert function
     
-    if (computedStats.average >= maxThreshold) {
+    if (computedStats.average > maxThreshold) {
         alerters[0]();
         alerters[1]();
     }
