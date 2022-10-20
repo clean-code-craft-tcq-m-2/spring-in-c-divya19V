@@ -3,10 +3,10 @@
 
 void emailAlerter ()
 {
-  emailAlertCallCount = 1;
+  emailAlertCallCount++;
 }
 
 void ledAlerter ()
 {
-  ledAlertCallCount = 1;
+  ledAlertCallCount++;
 }
