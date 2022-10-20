@@ -15,7 +15,7 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
    
     s.min = numberset[i];
     s.max = numberset[i];
-    s.sum = numberset[i];
+    float sum = numberset[i];
     
     for (i=1; i<setlength;i++) {
         if (numberset[i] > s.max) 
@@ -23,10 +23,10 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
         if(s.min > numberset[i])
             s.min = numberset[i];
             
-        s.sum += numberset[i]; 
+        sum += numberset[i]; 
      }          
-    s.average = s.sum/setlength;
-    }
+    s.average = sum/setlength;
+    
     return s;
 }
 
