@@ -4,32 +4,28 @@
 
 struct Stats compute_statistics(const float* numberset, int setlength) {
     struct Stats s;
-    s.average = 0.0;
-    s.min = 0.0;
-    s.max = 0.0;
-    
-    if (setlength == 0 || numberset == 0)
-        return s;
-    
     int i = 0; 
-    float min = numberset[i];
-    float max = numberset[i];
-    float sum = numberset[i];
-    i++;
-    while(i<setlength)
-    {   
-        if (numberset[i] > max) 
-            max = numberset[i];
-        else {
-            if(min > numberset[i])
-                min = numberset[i];
-        }
-        sum += numberset[i];
-        i++;    
+    
+    if (setlength == 0 || numberset == 0) {
+        s.average = 0.0/0.0;
+        s.min = 0.0/0.0;
+        s.max = 0.0/0.0;
+        return s;
+    }
+   
+    s.min = numberset[i];
+    s.max = numberset[i];
+    s.sum = numberset[i];
+    
+    for (i=1; i<setlength;i++) {
+        if (numberset[i] > s.max) 
+            s.max = numberset[i];
+        if(s.min > numberset[i])
+            s.min = numberset[i];
+            
+        s.sum += numberset[i]; 
      }          
-    s.min = min;
-    s.max = max;
-    s.average = sum/setlength;
+    s.average = s.sum/setlength;
     }
     return s;
 }
